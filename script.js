@@ -7,6 +7,8 @@ let secratenumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
 
+let highscore=0;
+
 
 document.querySelector(".number").textContent = "?";
 document.querySelector(".score").textContent = 20;
@@ -23,13 +25,35 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".masseage").textContent = "no number!";
 
     /// when  player wins/////
-  } else if (guess === secratenumber) {
+  }
+  else if (guess === secratenumber) {
     document.querySelector(".masseage").textContent = "correct number!";
     document.querySelector(".number").textContent = secratenumber;
     document.querySelector('body').style.backgroundColor='#60b347';
     document.querySelector('.number').style.width ='30rem';
 
-      
+    if (score>highscore){
+      highscore=score;
+      document.querySelector('.highscore').textContent=highscore;
+
+    }
+  }
+
+  
+
+    else if(guess !== secratenumber){
+      if(score>1){
+        document.querySelector('.masseage').textContent=guess>score ? 'too high':'too low';
+        score--;
+        document.querySelector(".score").textContent = score;
+      } else {
+        document.querySelector(".masseage").textContent = "You lose the game!";
+        document.querySelector(".score").textContent = 0;
+      }
+    }
+  });
+  
+    /*  
     /// when guess too  high///
   } else if (guess > secratenumber) {
     if (score > 1) {
@@ -47,7 +71,7 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".score").textContent = score;
 
   }
-});
+});*/
 
 document.querySelector('.again').addEventListener('click',function(){
   score=20;
@@ -58,7 +82,7 @@ document.querySelector('.again').addEventListener('click',function(){
   document.querySelector(".number").textContent = '?';
   document.querySelector(".guess").value = '';
 
-  document.querySelector('body').style.backgroundColor='#222';
+  document.querySelector('body').style.backgroundColor='';
     document.querySelector('.number').style.width ='30rem'; 
 
 
