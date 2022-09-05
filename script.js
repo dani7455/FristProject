@@ -91,10 +91,13 @@ document.querySelector('.again').addEventListener('click',function(){
 
 
 
-})
+});
 
+  function hello(){
+    console.log('hello every one');
 
-
+  }
+  hello();
 
 
 
