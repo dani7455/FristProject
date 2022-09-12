@@ -9,6 +9,11 @@ let score = 20;
 
 let highscore=0;
 
+const displayMasseage =function(masseage){
+  document.querySelector('.masseage').textContent=masseage;
+  
+}
+
 
 document.querySelector(".number").textContent = "?";
 document.querySelector(".score").textContent = 20;
@@ -22,12 +27,14 @@ document.querySelector(".check").addEventListener("click", function () {
   console.log(guess, typeof guess);
 
   if (!guess) {
-    document.querySelector(".masseage").textContent = "no number!";
+   // document.querySelector(".masseage").textContent = "no number!";
+   displayMasseage('no number ');
 
     /// when  player wins/////
-  }
+  } 
   else if (guess === secratenumber) {
-    document.querySelector(".masseage").textContent = "correct number!";
+    displayMasseage('correct number ')
+   // document.querySelector(".masseage").textContent = "correct number!";
     document.querySelector(".number").textContent = secratenumber;
     document.querySelector('body').style.backgroundColor='#60b347';
     document.querySelector('.number').style.width ='30rem';
@@ -91,13 +98,6 @@ document.querySelector('.again').addEventListener('click',function(){
 
 
 
-});
-
-  function hello(){
-    console.log('hello every one');
-
-  }
-  hello();
-
+}); 
 
 
